@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GroupResource {
 	private List<MyResource> listResource;
+	private boolean keepBackup;
 	
 	public void add(MyResource resource){
 		this.getListResource().add(resource);
@@ -18,6 +19,14 @@ public class GroupResource {
 
 	public void setListResource(List<MyResource> listResource) {
 		this.listResource = listResource;
+	}
+
+	public boolean isKeepBackup() {
+		return keepBackup;
+	}
+
+	public void setKeepBackup(boolean keepBackup) {
+		this.keepBackup = keepBackup;
 	}
 	
 }
