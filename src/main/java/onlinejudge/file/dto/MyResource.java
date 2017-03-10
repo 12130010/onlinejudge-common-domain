@@ -1,32 +1,33 @@
-package onlinejudge.dto.file;
+package onlinejudge.file.dto;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigInteger;
 
 public class MyResource {
-	public static String RESOURCE_TYPE_PROBLEM = "problem";
-	public static String RESOURCE_TYPE_TESTCASE_INPUT = "testcaseInput";
-	public static String RESOURCE_TYPE_TESTCASE_OUTPUT = "testcaseOutput";
-	public static String RESOURCE_TYPE_SUBMIT = "submit";
+	public static final String RESOURCE_TYPE_PROBLEM = "problem";
+	public static final String RESOURCE_TYPE_TESTCASE_INPUT = "testcaseInput";
+	public static final String RESOURCE_TYPE_TESTCASE_OUTPUT = "testcaseOutput";
+	public static final String RESOURCE_TYPE_SUBMIT = "submit";
 	
-	private BigInteger id;
+	private String id;
 	private String resourceType;
 	private String fileName;
 	private byte[] data =  {1};
 	public MyResource() {
 	}
-	public MyResource(BigInteger id, String resourceType, String fileName, byte[] data) {
+	public MyResource(String id, String resourceType, String fileName, byte[] data) {
 		super();
 		this.id = id;
 		this.resourceType = resourceType;
 		this.fileName = fileName;
 		this.data = data;
 	}
-	public BigInteger getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getResourceType() {

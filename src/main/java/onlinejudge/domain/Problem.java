@@ -1,22 +1,32 @@
 package onlinejudge.domain;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
+import onlinejudge.anotation.customcascade.CascadeSave;
+
 public class Problem {
-	private BigInteger id;
+	@Id
+	private String id;
 	public String name;
-	private BigInteger idOwner; // User's id
+	private String idOwner; // User's id
 	private String filePath;
+	@DBRef
+	@CascadeSave
 	private List<TestCase> listTestCase;
 	private double percentToPass; //0 < x <= 100
 	private int timeLimit;
-	
-	public BigInteger getId() {
+	private Date createdDate;
+	private Date updateDate;
+	private int version;
+	public String getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -25,10 +35,11 @@ public class Problem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public BigInteger getIdOwner() {
+	
+	public String getIdOwner() {
 		return idOwner;
 	}
-	public void setIdOwner(BigInteger idOwner) {
+	public void setIdOwner(String idOwner) {
 		this.idOwner = idOwner;
 	}
 	public String getFilePath() {
@@ -58,4 +69,32 @@ public class Problem {
 		this.timeLimit = timeLimit;
 	}
 	
+	public void clearAllTestCase(){
+		listTestCase.clear();
+	}
+	
+	public void addTestCase(TestCase testCase){
+		listTestCase.add(testCase);	
+	}
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	public void increaseVersion(){
+		this.version++;
+	}
 }

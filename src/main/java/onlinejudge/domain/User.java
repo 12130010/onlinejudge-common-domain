@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public class User{
-	private BigInteger id;
+	private String id;
 	private String email;
 	private String password;
 	private String displayName;
@@ -19,10 +19,12 @@ public class User{
 	private String verifyCode;
 	private Date deadlineVerify;
 	private List<String> roles;
-	public BigInteger getId() {
+	
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getEmail() {
