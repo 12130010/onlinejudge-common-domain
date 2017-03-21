@@ -1,34 +1,38 @@
 package onlinejudge.domain;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Contest {
-	private BigInteger id;
+	public static final int NOT_START = 1;
+	public static final int STARTED = 2;
+	public static final int FREEZED = 3;
+	public static final int END = 4;
+	private String id;
 	private String shortName;
 	private String longName;
 	private String description;
-	private User admin; //DBRef
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Ho_Chi_Minh")
+	private String adminID; //DBRef
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm:ss", timezone="Asia/Ho_Chi_Minh")
 	private Date startDate;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Ho_Chi_Minh")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm:ss", timezone="Asia/Ho_Chi_Minh")
 	private Date endDate;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Ho_Chi_Minh")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm:ss", timezone="Asia/Ho_Chi_Minh")
 	private Date freezeDate;
+	private int status;
 	private boolean isSelfRegister;
 	private List<Team> listTeam;
-	private List<User> listJudge;
+	private List<String> listJudgeID;
 	private List<ProblemForContest> listProblem;
 	private byte numberMemPerTeam;
-	public BigInteger getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getShortName() {
@@ -49,11 +53,12 @@ public class Contest {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public User getAdmin() {
-		return admin;
+	
+	public String getAdminID() {
+		return adminID;
 	}
-	public void setAdmin(User admin) {
-		this.admin = admin;
+	public void setAdminID(String adminID) {
+		this.adminID = adminID;
 	}
 	public Date getStartDate() {
 		return startDate;
@@ -73,6 +78,13 @@ public class Contest {
 	public void setFreezeDate(Date freezeDate) {
 		this.freezeDate = freezeDate;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public boolean isSelfRegister() {
 		return isSelfRegister;
 	}
@@ -87,13 +99,14 @@ public class Contest {
 	public void setListTeam(List<Team> listTeam) {
 		this.listTeam = listTeam;
 	}
-	public List<User> getListJudge() {
-		if(listJudge == null)
-			listJudge = new ArrayList<User>();
-		return listJudge;
+	
+	public List<String> getListJudgeID() {
+		if(listJudgeID == null)
+			listJudgeID = new ArrayList<String>();
+		return listJudgeID;
 	}
-	public void setListJudge(List<User> listJudge) {
-		this.listJudge = listJudge;
+	public void setListJudgeID(List<String> listJudgeID) {
+		this.listJudgeID = listJudgeID;
 	}
 	public List<ProblemForContest> getListProblem() {
 		if(listProblem == null)
