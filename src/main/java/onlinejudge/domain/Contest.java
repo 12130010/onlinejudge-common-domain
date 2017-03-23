@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import onlinejudge.anotation.customcascade.CascadeSave;
 
 public class Contest {
 	public static final int NOT_START = 1;
@@ -24,6 +28,8 @@ public class Contest {
 	private Date freezeDate;
 	private int status;
 	private boolean isSelfRegister;
+	@CascadeSave
+	@DBRef
 	private List<Team> listTeam;
 	private List<String> listJudgeID;
 	private List<ProblemForContest> listProblem;

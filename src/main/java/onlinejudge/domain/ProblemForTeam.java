@@ -1,10 +1,9 @@
 package onlinejudge.domain;
 
-import java.math.BigInteger;
 import java.util.List;
 
 public class ProblemForTeam {
-	private BigInteger id;
+	private String id;
 	private ProblemForContest problemForContest;
 	private boolean isResolve;
 	private int timeResolve;

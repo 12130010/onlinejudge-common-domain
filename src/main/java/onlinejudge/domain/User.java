@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User{
 	private String id;
 	private String email;
@@ -13,9 +15,13 @@ public class User{
 	private String avatar;
 	private String address;
 	private Date createdDate;
+	@JsonIgnore
 	private boolean isVerify;
+	@JsonIgnore
 	private boolean isLock;
+	@JsonIgnore
 	private String verifyCode;
+	@JsonIgnore
 	private Date deadlineVerify;
 	private List<String> roles;
 	
