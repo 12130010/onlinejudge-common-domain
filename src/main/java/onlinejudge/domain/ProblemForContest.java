@@ -1,7 +1,12 @@
 package onlinejudge.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 public class ProblemForContest {
+	@Id
 	private String id;
+	@DBRef
 	private Problem problem; //DBRef
 	private byte index;
 	private String color;

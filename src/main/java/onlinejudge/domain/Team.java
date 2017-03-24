@@ -1,5 +1,6 @@
 package onlinejudge.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -11,6 +12,10 @@ public class Team {
 	private List<User> listMember;
 	private String idContest;
 	private List<ProblemForTeam> listProblem;
+	
+	public Team() {
+		listProblem = new ArrayList<ProblemForTeam>();
+	}
 	
 	public String getId() {
 		return id;
@@ -42,6 +47,11 @@ public class Team {
 	public void setListProblem(List<ProblemForTeam> listProblem) {
 		this.listProblem = listProblem;
 	}
-	
+	public void updateListProblem(List<ProblemForContest> listProblemForContest){
+		listProblem.clear();
+		for (ProblemForContest problemForContest : listProblemForContest) {
+			listProblem.add(new ProblemForTeam(problemForContest));
+		}
+	}
 	
 }

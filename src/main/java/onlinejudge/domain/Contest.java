@@ -32,6 +32,8 @@ public class Contest {
 	@DBRef
 	private List<Team> listTeam;
 	private List<String> listJudgeID;
+	@CascadeSave
+	@DBRef
 	private List<ProblemForContest> listProblem;
 	private byte numberMemPerTeam;
 	
