@@ -16,6 +16,17 @@ public class MyResource {
 	private byte[] data =  {1};
 	public MyResource() {
 	}
+	
+	
+
+	public MyResource(String resourceType, String fileName) {
+		super();
+		this.resourceType = resourceType;
+		this.fileName = fileName;
+	}
+
+
+
 	public MyResource(String id, String resourceType, String fileName, byte[] data) {
 		super();
 		this.id = id;

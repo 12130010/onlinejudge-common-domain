@@ -53,5 +53,11 @@ public class Team {
 			listProblem.add(new ProblemForTeam(problemForContest));
 		}
 	}
-	
+	public ProblemForTeam getProblemForTeamById(String id){
+		for (ProblemForTeam problem : listProblem) {
+			if(problem.getId().equals(id))
+				return problem;
+		}
+		return null;
+	}
 }

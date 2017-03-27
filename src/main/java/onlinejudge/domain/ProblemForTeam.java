@@ -24,10 +24,14 @@ public class ProblemForTeam {
 	public ProblemForTeam() {
 		listSubmit = new ArrayList<Submit>();
 	}
-
+	/**
+	 * Note ProblemForContest'id is used for ProblemForTeam
+	 * @param problemForContest
+	 */
 	public ProblemForTeam(ProblemForContest problemForContest) {
 		this();
 		this.problemForContest = problemForContest;
+		this.id = problemForContest.getId();
 		index = problemForContest.getIndex();
 	}
 
@@ -86,5 +90,7 @@ public class ProblemForTeam {
 	public void setIndex(byte index) {
 		this.index = index;
 	}
-	
+	public void addSubmit(Submit submit){
+		listSubmit.add(submit);
+	}
 }

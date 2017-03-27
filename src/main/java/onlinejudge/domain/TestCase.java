@@ -1,7 +1,5 @@
 package onlinejudge.domain;
 
-import java.math.BigInteger;
-
 import org.springframework.data.annotation.Id;
 
 public class TestCase {
