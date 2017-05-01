@@ -70,7 +70,7 @@ public class Problem {
 	}
 	
 	public void clearAllTestCase(){
-		listTestCase.clear();
+		getListTestCase().clear();
 	}
 	
 	public void addTestCase(TestCase testCase){
